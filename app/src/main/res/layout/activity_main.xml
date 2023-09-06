@@ -2,9 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+
 
     <ImageView
         android:id="@+id/iv_background"
@@ -13,14 +16,15 @@
         android:scaleType="centerCrop"
         android:src="@drawable/img_bg" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/gb_grad_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="500dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/bg_grad_color"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <ImageView
         android:id="@+id/iv_bg_lmnt_img"
@@ -28,6 +32,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="292dp"
         android:src="@drawable/img_house"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <include
+        layout="@layout/layout_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
