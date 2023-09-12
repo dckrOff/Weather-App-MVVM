@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:backgroundTint="@color/primaryColor3"
     android:layout_height="190dp"
+    android:backgroundTint="@color/primaryColor3"
     app:cardCornerRadius="24dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primaryColor1"
-        android:padding="16dp">
+        android:background="@color/primaryColor1">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="25dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:src="@drawable/ic_sun"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_sunrise"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:fontFamily="@font/sf_pro_text_semibold"
-            android:text="UV INDEX"
+            android:text="SUNRISE"
             android:textColor="@color/gray"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -37,33 +39,24 @@
             android:id="@+id/tv_sunrise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/sf_pro_text_semibold"
-            android:text="4"
+            android:text="04:28"
             android:textColor="@color/white"
             android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <TextView
-            android:id="@+id/tv_air_quality"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_text_semibold"
-            android:text="Moderate"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sunrise" />
-
-        <SeekBar
-            android:id="@+id/sb_air_quality"
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_sunshine_rise"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_air_quality" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_sunrise" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

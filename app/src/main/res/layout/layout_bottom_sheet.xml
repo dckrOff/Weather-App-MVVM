@@ -9,7 +9,6 @@
     app:behavior_peekHeight="300dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-
     <eightbitlab.com.blurview.BlurView
         android:id="@+id/bv_bottom_sheet"
         android:layout_width="match_parent"
@@ -65,9 +64,9 @@
 
                         <include
                             android:id="@+id/include2"
-                            layout="@layout/layout_uv_index"
+                            layout="@layout/layout_sunrise"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:layout_marginStart="8dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"

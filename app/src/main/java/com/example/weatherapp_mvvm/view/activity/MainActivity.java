@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,10 +16,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
-import com.example.weatherapp_mvvm.Model.TempForecast;
+import com.example.weatherapp_mvvm.Model.Forecast.Forecast;
 import com.example.weatherapp_mvvm.R;
 import com.example.weatherapp_mvvm.view.adapter.ForecastAdapter;
+import com.example.weatherapp_mvvm.viewmodel.WeatherForecastViewModel;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
@@ -31,13 +35,16 @@ import eightbitlab.com.blurview.RenderScriptBlur;
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
-    BlurView bvBottomSheet;
+    private BlurView bvBottomSheet;
     private ViewGroup root;
     private RecyclerView rvHourlyForecast;
-    private ArrayList<TempForecast> forecastList = new ArrayList<>();
+    private ArrayList<Forecast> forecastList = new ArrayList<>();
     private ConstraintLayout bottomSheet;
     private BottomSheetBehavior<ConstraintLayout> bottomSheetBehavior;
     private NestedScrollView svWeatherDetails;
+    private WeatherForecastViewModel weatherForecastViewModel = new WeatherForecastViewModel();
+    private TextView tvAirQuality,tvSunrise;
+    private SeekBar sbAirQuality;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        tvAirQuality = findViewById(R.id.tv_air_quality);
+        sbAirQuality = findViewById(R.id.sb_air_quality);
+        sbAirQuality = findViewById(R.id.sb_air_quality);
+
+
         bvBottomSheet = findViewById(R.id.bv_bottom_sheet);
         bottomSheet = findViewById(R.id.bottomSheet);
         rvHourlyForecast = findViewById(R.id.rv_hour_forecast);
@@ -78,18 +90,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void observ() {
+        weatherForecastViewModel.getWeatherForecast().observe(this, new Observer<Forecast>() {
+            @Override
+            public void onChanged(Forecast forecast) {
+//                adapter.addHolidayList(currencyPojos);
+//                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
     private void getForecastData() {
         // TODO need to get from server
 
-        forecastList.add(new TempForecast("12:00", "15", "19", false));
-        forecastList.add(new TempForecast("13:00", "20", "20", true));
-        forecastList.add(new TempForecast("14:00", "35", "21", false));
-        forecastList.add(new TempForecast("15:00", "80", "17", false));
-        forecastList.add(new TempForecast("16:00", "50", "19", false));
-        forecastList.add(new TempForecast("17:00", "35", "23", false));
-        forecastList.add(new TempForecast("18:00", "15", "28", false));
-        forecastList.add(new TempForecast("19:00", "14", "30", false));
-        forecastList.add(new TempForecast("20:00", "78", "18", false));
+        forecastList.add(new Forecast());
+        forecastList.add(new Forecast());
+        forecastList.add(new Forecast());
+        forecastList.add(new Forecast());
+        forecastList.add(new Forecast());
+        forecastList.add(new Forecast());
     }
 
     private void setAdapter() {
@@ -110,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
         bvBottomSheet.setupWith(root, algorithm)
                 .setFrameClearDrawable(windowBackground)
                 .setBlurRadius(BLUR_RADIUS);
-
     }
 
     @NonNull

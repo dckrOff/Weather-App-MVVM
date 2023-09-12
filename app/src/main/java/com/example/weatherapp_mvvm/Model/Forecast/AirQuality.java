@@ -1,5 +1,5 @@
 
-package com.example.weatherapp_mvvm.Model;
+package com.example.weatherapp_mvvm.Model.Forecast;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
@@ -13,7 +13,7 @@ public class AirQuality implements Serializable
     private Double co;
     @SerializedName("no2")
     @Expose
-    private Double no2;
+    private Integer no2;
     @SerializedName("o3")
     @Expose
     private Double o3;
@@ -32,7 +32,7 @@ public class AirQuality implements Serializable
     @SerializedName("gb-defra-index")
     @Expose
     private Integer gbDefraIndex;
-    private final static long serialVersionUID = -110429567836221215L;
+    private final static long serialVersionUID = -5779409554408294279L;
 
     /**
      * No args constructor for use in serialization
@@ -52,7 +52,7 @@ public class AirQuality implements Serializable
      * @param usEpaIndex
      * @param gbDefraIndex
      */
-    public AirQuality(Double co, Double no2, Double o3, Double so2, Double pm25, Double pm10, Integer usEpaIndex, Integer gbDefraIndex) {
+    public AirQuality(Double co, Integer no2, Double o3, Double so2, Double pm25, Double pm10, Integer usEpaIndex, Integer gbDefraIndex) {
         super();
         this.co = co;
         this.no2 = no2;
@@ -72,11 +72,11 @@ public class AirQuality implements Serializable
         this.co = co;
     }
 
-    public Double getNo2() {
+    public Integer getNo2() {
         return no2;
     }
 
-    public void setNo2(Double no2) {
+    public void setNo2(Integer no2) {
         this.no2 = no2;
     }
 
@@ -170,6 +170,32 @@ public class AirQuality implements Serializable
             sb.append(']');
         }
         return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 1;
+        result = ((result* 31)+((this.no2 == null)? 0 :this.no2 .hashCode()));
+        result = ((result* 31)+((this.o3 == null)? 0 :this.o3 .hashCode()));
+        result = ((result* 31)+((this.pm25 == null)? 0 :this.pm25 .hashCode()));
+        result = ((result* 31)+((this.so2 == null)? 0 :this.so2 .hashCode()));
+        result = ((result* 31)+((this.pm10 == null)? 0 :this.pm10 .hashCode()));
+        result = ((result* 31)+((this.co == null)? 0 :this.co.hashCode()));
+        result = ((result* 31)+((this.usEpaIndex == null)? 0 :this.usEpaIndex.hashCode()));
+        result = ((result* 31)+((this.gbDefraIndex == null)? 0 :this.gbDefraIndex.hashCode()));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof AirQuality) == false) {
+            return false;
+        }
+        AirQuality rhs = ((AirQuality) other);
+        return (((((((((this.no2 == rhs.no2)||((this.no2 != null)&&this.no2 .equals(rhs.no2)))&&((this.o3 == rhs.o3)||((this.o3 != null)&&this.o3 .equals(rhs.o3))))&&((this.pm25 == rhs.pm25)||((this.pm25 != null)&&this.pm25 .equals(rhs.pm25))))&&((this.so2 == rhs.so2)||((this.so2 != null)&&this.so2 .equals(rhs.so2))))&&((this.pm10 == rhs.pm10)||((this.pm10 != null)&&this.pm10 .equals(rhs.pm10))))&&((this.co == rhs.co)||((this.co!= null)&&this.co.equals(rhs.co))))&&((this.usEpaIndex == rhs.usEpaIndex)||((this.usEpaIndex!= null)&&this.usEpaIndex.equals(rhs.usEpaIndex))))&&((this.gbDefraIndex == rhs.gbDefraIndex)||((this.gbDefraIndex!= null)&&this.gbDefraIndex.equals(rhs.gbDefraIndex))));
     }
 
 }

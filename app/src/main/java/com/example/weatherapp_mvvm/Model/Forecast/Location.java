@@ -1,5 +1,5 @@
 
-package com.example.weatherapp_mvvm.Model;
+package com.example.weatherapp_mvvm.Model.Forecast;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
@@ -32,7 +32,7 @@ public class Location implements Serializable
     @SerializedName("localtime")
     @Expose
     private String localtime;
-    private final static long serialVersionUID = 587279333963371242L;
+    private final static long serialVersionUID = -2861311679550978299L;
 
     /**
      * No args constructor for use in serialization
@@ -170,6 +170,32 @@ public class Location implements Serializable
             sb.append(']');
         }
         return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 1;
+        result = ((result* 31)+((this.localtime == null)? 0 :this.localtime.hashCode()));
+        result = ((result* 31)+((this.country == null)? 0 :this.country.hashCode()));
+        result = ((result* 31)+((this.tzId == null)? 0 :this.tzId.hashCode()));
+        result = ((result* 31)+((this.localtimeEpoch == null)? 0 :this.localtimeEpoch.hashCode()));
+        result = ((result* 31)+((this.name == null)? 0 :this.name.hashCode()));
+        result = ((result* 31)+((this.lon == null)? 0 :this.lon.hashCode()));
+        result = ((result* 31)+((this.region == null)? 0 :this.region.hashCode()));
+        result = ((result* 31)+((this.lat == null)? 0 :this.lat.hashCode()));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Location) == false) {
+            return false;
+        }
+        Location rhs = ((Location) other);
+        return (((((((((this.localtime == rhs.localtime)||((this.localtime!= null)&&this.localtime.equals(rhs.localtime)))&&((this.country == rhs.country)||((this.country!= null)&&this.country.equals(rhs.country))))&&((this.tzId == rhs.tzId)||((this.tzId!= null)&&this.tzId.equals(rhs.tzId))))&&((this.localtimeEpoch == rhs.localtimeEpoch)||((this.localtimeEpoch!= null)&&this.localtimeEpoch.equals(rhs.localtimeEpoch))))&&((this.name == rhs.name)||((this.name!= null)&&this.name.equals(rhs.name))))&&((this.lon == rhs.lon)||((this.lon!= null)&&this.lon.equals(rhs.lon))))&&((this.region == rhs.region)||((this.region!= null)&&this.region.equals(rhs.region))))&&((this.lat == rhs.lat)||((this.lat!= null)&&this.lat.equals(rhs.lat))));
     }
 
 }

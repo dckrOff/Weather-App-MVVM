@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.weatherapp_mvvm.Model.TempForecast;
+import com.example.weatherapp_mvvm.Model.Forecast.Forecast;
 import com.example.weatherapp_mvvm.R;
 
 import java.util.ArrayList;
@@ -25,9 +25,9 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.MyView
 
     private final String TAG = "ForecastAdapter";
     private final LayoutInflater inflater;
-    private ArrayList<TempForecast> forecast;
+    private ArrayList<Forecast> forecast;
 
-    public ForecastAdapter(Context context, ArrayList<TempForecast> forecast) {
+    public ForecastAdapter(Context context, ArrayList<Forecast> forecast) {
         this.forecast = forecast;
         this.inflater = LayoutInflater.from(context);
     }
@@ -42,13 +42,13 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.MyView
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        TempForecast forecast = this.forecast.get(position);
+        Forecast forecast = this.forecast.get(position);
 
-        holder.tvHourOrWeek.setText(forecast.getTime());
-        holder.tvHumidity.setText(forecast.getHumidity() + "%");
-        holder.tvDegree.setText(forecast.getDegree() + "°");
-        if (forecast.isNow())
-            holder.itemBg.setBackgroundColor(Color.parseColor("#48319D"));
+//        holder.tvHourOrWeek.setText(forecast.getTime());
+//        holder.tvHumidity.setText(forecast.getHumidity() + "%");
+//        holder.tvDegree.setText(forecast.getDegree() + "°");
+//        if (forecast.isNow())
+//            holder.itemBg.setBackgroundColor(Color.parseColor("#48319D"));
 
 //        setupBlurView(holder.itemBg, holder.bvForecast);
 
